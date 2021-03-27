@@ -83,6 +83,8 @@ async function configure() {
             pull(hook.path).then((result: object) => {
                 console.log(result);
             }).catch();
+
+            res.sendStatus(200);
         })
 
         console.log(`listening for ${hook.path}:${await getActiveBranch(hook.path)} -> ${await getRemoteURL(hook.path)}:${await getUpstreamBranch(hook.path)}`)
