@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "run": "./node_modules/.bin/ts-node index"
+  },
   "dependencies": {
     "@types/node": "^14.14.36",
     "body-parser": "^1.19.0",
