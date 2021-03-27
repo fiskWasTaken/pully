@@ -1,0 +1,11 @@
+{
+    "express": {
+        "port": 1337,
+        "host": "0.0.0.0"
+    },
+    "hooks": {
+        "hook-name": {
+            "path": "/path/to/repo"
+        }
+    }
+}
