@@ -90,7 +90,7 @@ async function configure() {
 
         })
 
-        console.log(`/hooks/${id}: ${hook.path}:${await getActiveBranch(hook.path)} -> ${await getRemoteURL(hook.path)}:${await getUpstreamBranch(hook.path)}`)
+        console.log(`[/hooks/${id}] ${hook.path}:${await getActiveBranch(hook.path)} -> ${await getRemoteURL(hook.path)}:${await getUpstreamBranch(hook.path)}`)
     }
 }
 
