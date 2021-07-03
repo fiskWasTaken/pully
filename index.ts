@@ -62,6 +62,8 @@ async function pull(repo: string): Promise<object> {
 
 const app = express()
 
+app.use(express.json())
+
 app.listen(config.express.port, config.express.host, () => {
     console.log(`App server listening at ${config.express.host}:${config.express.port}`)
 });
@@ -77,6 +79,8 @@ async function configure() {
         }
 
         app.post(`/hooks/${id}`, async (req, res) => {
+            res.sendStatus(200);
+
             console.log(req.body);
             console.log(`Executing git pull for ${hook.path}`)
 
@@ -84,10 +88,9 @@ async function configure() {
                 console.log(result);
             }).catch();
 
-            res.sendStatus(200);
         })
 
-        console.log(`listening for ${hook.path}:${await getActiveBranch(hook.path)} -> ${await getRemoteURL(hook.path)}:${await getUpstreamBranch(hook.path)}`)
+        console.log(`[/hooks/${id}] ${hook.path}:${await getActiveBranch(hook.path)} -> ${await getRemoteURL(hook.path)}:${await getUpstreamBranch(hook.path)}`)
     }
 }
 
